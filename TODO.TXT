@@ -1,0 +1,2 @@
+change the togglers for the carousel 
+change the the color of the togglers

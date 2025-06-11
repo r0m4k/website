@@ -1,0 +1,361 @@
+/* General Body Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+    padding-top: 70px; /* Adjusted for fixed navbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Sticky footer styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 70px; /* Adjust if navbar height changes */
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #ffffff; /* Default for light mode */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+    padding: 1rem 0;
+    transition: background-color 0.3s;
+}
+
+.nav-link.active {
+    color: var(--bs-primary) !important;
+}
+
+/* Page Content Sections */
+.page-section {
+    padding: 60px 0;
+    display: block; /* Always visible now */
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Home Section Hero */
+#home {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#home h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* Portfolio Cards */
+.card {
+    border: none;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Custom Carousel Styling */
+#projectCarousel {
+    position: relative;
+    overflow: hidden; /* Clip items that go too far out if necessary */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#projectCarousel .carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Adjust height as needed, or use aspect ratio */
+    perspective: 1800px; /* Apply perspective to the container of transformed items */
+    overflow: visible; /* IMPORTANT: Allow items to be seen outside the direct 'active' slot */
+}
+
+#projectCarousel .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex !important; /* Override Bootstrap, center content */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Start hidden/faded */
+    visibility: hidden; /* Start not visible */
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0s 0.6s; /* Delay visibility transition */
+    backface-visibility: hidden;
+}
+
+#projectCarousel .carousel-item.c-item-active,
+#projectCarousel .carousel-item.c-item-next-1,
+#projectCarousel .carousel-item.c-item-prev-1,
+#projectCarousel .carousel-item.c-item-next-2,
+#projectCarousel .carousel-item.c-item-prev-2 {
+    visibility: visible;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0s 0s; /* Immediate visibility when becoming active/nearby */
+}
+
+
+#projectCarousel .carousel-item .card-link {
+    display: block;
+    width: 50%; /* Adjust width of the card area */
+    max-width: 380px; /* Max width of the card area */
+    margin: auto;
+    height: auto; /* Or set a fixed height for cards if desired */
+}
+
+#projectCarousel .carousel-item .card {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Styles for different item states based on JS-added classes */
+#projectCarousel .carousel-item.c-item-active {
+    transform: translateX(0%) translateZ(0px) scale(1);
+    opacity: 1;
+    z-index: 5;
+}
+
+#projectCarousel .carousel-item.c-item-next-1 {
+    transform: translateX(40%) translateZ(-200px) rotateY(-30deg) scale(0.8);
+    opacity: 0.6;
+    z-index: 4;
+}
+
+#projectCarousel .carousel-item.c-item-prev-1 {
+    transform: translateX(-40%) translateZ(-200px) rotateY(30deg) scale(0.8);
+    opacity: 0.6;
+    z-index: 4;
+}
+
+#projectCarousel .carousel-item.c-item-next-2 {
+    transform: translateX(75%) translateZ(-400px) rotateY(-40deg) scale(0.65);
+    opacity: 0.3;
+    z-index: 3;
+}
+
+#projectCarousel .carousel-item.c-item-prev-2 {
+    transform: translateX(-75%) translateZ(-400px) rotateY(40deg) scale(0.65);
+    opacity: 0.3;
+    z-index: 3;
+}
+
+#projectCarousel .carousel-item.c-item-far {
+    transform: scale(0.5) translateZ(-500px);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Adjust carousel controls */
+#projectCarousel .carousel-control-prev,
+#projectCarousel .carousel-control-next {
+    z-index: 10;
+    width: auto; /* Adjust if needed */
+    /* Background for better visibility if needed */
+    /* background-color: rgba(0, 0, 0, 0.1); */
+}
+#projectCarousel .carousel-control-prev {
+    left: 10px;
+}
+#projectCarousel .carousel-control-next {
+    right: 10px;
+}
+
+/* Style for the carousel controls to make them more visible */
+#projectCarousel .carousel-control-prev-icon,
+#projectCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background for better visibility */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Add some padding */
+}
+
+/* Dark Mode Carousel Controls */
+[data-bs-theme="dark"] #projectCarousel .carousel-control-prev-icon,
+[data-bs-theme="dark"] #projectCarousel .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.5); /* Lighter background for dark mode */
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--bs-card-bg); /* Use Bootstrap variable for background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #ffffff; /* Default for light mode */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form .form-control {
+    background-color: #faf8f8; /* Slightly lighter than the form background for contrast */
+}
+
+/* Footer */
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #ffffff;
+    transition: background-color 0.3s, background-color 0.3s;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Fractal Tree Canvas Styles */
+#fractal-tree-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind other content */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Dark Mode Specific Styles */
+[data-bs-theme="dark"] body {
+    background-color: #000000;
+}
+
+[data-bs-theme="dark"] .navbar {
+     background-color: #000000 !important;
+}
+
+[data-bs-theme="dark"] .contact-form {
+     background: #000000; /* Slightly lighter than card for contrast */
+     box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+[data-bs-theme="dark"] .contact-form .form-control {
+    background-color: #111111; /* Slightly lighter than the form background for contrast */
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .footer {
+     background-color: #000000;
+}
+
+.theme-toggler-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggler-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* --- Light Theme Customization --- */
+    /* Default state for light theme */
+    background-color: transparent; /* Explicitly transparent for outline style */
+}
+
+.theme-toggler-btn:hover {
+    /* Hover state for light theme */
+    border-color: #0d6efd;         /* Darker border on hover */
+    background-color: #0d6efd;     /* Background fill on hover */
+    color: #ffffff;                /* Icon color on hover for light theme */
+}
+
+.card:hover {
+     transform: translateY(-10px);
+     color: #0d6efd;  
+}
+
+.main-flush-top {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#about p,
+#about h2,
+#about h3 {
+    background: rgb(255, 255, 255);
+    color: #000000;
+    width: fit-content;
+}
+
+/* Dark theme for line-by-line backgrounds */
+[data-bs-theme="dark"] #about p,
+[data-bs-theme="dark"] #about h2,
+[data-bs-theme="dark"] #about h3 {
+    background:rgb(0, 0, 0) 100%;
+    color: #ffffff;
+}
+
+#about h2 {
+    width: fit-content;
+    margin: 0 auto
+}
+
+#about .img-fluid.rounded-circle {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto 1.5rem auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+#about {
+    container-type: inline-size;
+}
+
+/* Container queries for more precise responsive control */
+@container (min-width: 400px) {
+    #about .img-fluid.rounded-circle {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+@container (min-width: 600px) {
+    #about .img-fluid.rounded-circle {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@container (min-width: 800px) {
+    #about .img-fluid.rounded-circle {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+@container (min-width: 1000px) {
+    #about .img-fluid.rounded-circle {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+.map {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+         filter: grayscale(100%);
+}
