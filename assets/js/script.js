@@ -439,6 +439,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     } else {
         console.warn("Project Carousel: Element with ID 'projectCarousel' not found.");
-    }
+    };
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Assuming your form has an ID, for example, 'contactForm'
+    const contactForm = document.getElementById('contactForm'); // Make sure your form has this ID or use a different selector
+    const errorMessage = document.getElementById('form-error-message');
+
+    if (contactForm && errorMessage) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            errorMessage.classList.remove('d-none');
+
+        });
+    }
+});
