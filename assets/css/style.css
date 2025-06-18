@@ -229,6 +229,29 @@ main {
     pointer-events: none; /* Allow clicks to pass through */
 }
 
+/* Google Maps Section */
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 10%; /* 16:9 Aspect Ratio for responsiveness */
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    height: auto;
+    border: 0;
+}
+
+.bw-map {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); /* For Safari */
+}
+
 /* Dark Mode Specific Styles */
 [data-bs-theme="dark"] body {
     background-color: #000000;

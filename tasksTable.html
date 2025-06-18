@@ -1,0 +1,158 @@
+<html lang="en" data-bs-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks Table - Personal Website</title>
+    <!-- Bootstrap JS Bundle -->
+    <script defer="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script defer="" src="assets/js/script.js"></script>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+            }
+        });
+    </script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="navbar-placeholder"><nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="aboutMe.html">Roman Dolgopolyi</a>
+        <button class="navbar-toggler btn rounded-circle theme-toggler-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-body-text"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutMe.html">aboutMe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cv.html">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactMe.html">contactMe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="tasksTable.html">tasksTable</a>
+                </li>
+                <!-- Theme Toggler -->
+                <li class="nav-item ms-lg-3">
+                     <button class="btn btn-outline-secondary rounded-circle theme-toggler-btn" id="theme-toggler">
+                        <i class="bi bi-braces-asterisk"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</div>
+
+    <!-- Page Content -->
+    <main class="container mt-5 pt-5 main-flush-top">
+        <section id="tasks-manager" class="page-section">
+            <h2 class="section-title">Tasks Table</h2>
+
+            <!-- Task Form -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="p-4">
+                        <h3 class="mb-3">Add New Task</h3>
+                        <form id="task-form">
+                            <div class="mb-3">
+                                <label for="task-name" class="form-label">Task Name</label>
+                                <input type="text" class="form-control" id="task-name" required="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="task-description" class="form-label">Description</label>
+                                <textarea class="form-control" id="task-description" rows="3" required=""></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="task-due-date" class="form-label">Due Date</label>
+                                <input type="date" class="form-control" id="task-due-date" required="" max="2026-06-12" min="2024-06-12">
+                                <small class="text-muted">Date must be between today and one year from now</small>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 mb-3">
+                                    <label for="task-status" class="form-label">Status</label>
+                                    <select class="form-select" id="task-status" required="">
+                                        <option value="planned" selected="">Planned</option>
+                                        <option value="started">Started</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="task-importance" class="form-label">Importance</label>
+                                    <select class="form-select" id="task-importance" required="">
+                                        <option value="low">Low</option>
+                                        <option value="medium" selected="">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Add Task</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks Table -->
+            <div class="p-4">
+                <h3 class="mb-3">Current Tasks</h3>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="tasks-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">Name</th>
+                                <th scope="col" class="text-center">Description</th>
+                                <th scope="col" class="text-center">Due Date</th>
+                                <th scope="col" class="text-center">Status</th>
+                                <th scope="col" class="text-center">Importance</th>
+                                <th scope="col" class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tasks-table-body"><tr data-index="0">
+                    <td>dsfsdf</td>
+                    <td data-bs-toggle="tooltip" data-bs-original-title="sdfsdfdsf">sdfsdfdsf</td>
+                    <td>13 Mar 2025</td>
+                    <td><span class="badge bg-dark">Completed</span></td>
+                    <td><span class="badge bg-dark">High</span></td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <button class="btn btn-sm btn-outline-primary m-1 edit-task" title="Edit Task"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-outline-dark m-1 delete-task" title="Delete Task"><i class="bi bi-trash"></i></button>
+                            <button class="btn btn-sm btn-outline-primary m-1 complete-task disabled" title="Mark Complete"><i class="bi bi-check-lg"></i></button>
+                        </div>
+                    </td>
+                </tr></tbody>
+                    </table>
+                </div>
+                <p id="no-tasks-message" class="text-center d-none">No tasks yet. Add some!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"><footer class="footer ">
+    <div class="container">
+        <p>© 2025 Roman Dolgopolyi. All Rights Reserved.</p>
+    </div>
+</footer></div>
+
+
+</body></html>

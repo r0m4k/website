@@ -1,0 +1,3 @@
+1 - change the table input colors
+2 - change the placement of the table buttons
+3 - add information from the table at another webpage
