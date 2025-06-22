@@ -448,11 +448,11 @@ function drawFractalTreeOnAboutPage() {
  */
 $(document).ready(() => {
     // Load navbar and footer components
-    loadHTML('_navbar.html', 'navbar-placeholder', () => {
+    loadHTML('navbar.html', 'navbar-placeholder', () => {
         initializeNavbarFeatures();
     });
 
-    loadHTML('_footer.html', 'footer-placeholder', null);
+    loadHTML('footer.html', 'footer-placeholder', null);
 
     // Draw fractal tree if on the About Me page
     if ($('#fractal-tree-canvas').length) {
